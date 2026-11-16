@@ -1,0 +1,9 @@
+name: FastCustomBlocks
+version: 26.1.2-0
+main: net.sakurafalls.fast_custom_blocks.FastCustomBlocksMain
+description: Port of custom_blocks.dsc in Java that is completely async. Provides interop with Denizen.
+api-version: 26.1
+author: bqkitcat
+website: www.sakurafalls.net
+depend:
+  - Denizen
