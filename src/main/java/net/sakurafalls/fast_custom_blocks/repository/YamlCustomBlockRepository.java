@@ -42,7 +42,7 @@ public class YamlCustomBlockRepository implements CustomBlockRepository {
         yaml.set("d." + locationToString(location) + ".w", location.getWorld().getName());
         yaml.set("d." + locationToString(location) + ".i", item);
         yaml.set("d." + locationToString(location) + ".p", pitch);
-        yaml.set("d." + locationToString(location) + ".y", yaw);
+        yaml.set("d." + locationToString(location) + ".v", yaw);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class YamlCustomBlockRepository implements CustomBlockRepository {
                 Location location = new Location(world, x, y, z);
                 ItemStack item = data.getItemStack(locationString + ".i");
                 float pitch = (float) data.getDouble(locationString + ".p");
-                float yaw = (float) data.getDouble(locationString + ".y");
+                float yaw = (float) data.getDouble(locationString + ".v");
                 result.put(location, CustomBlock.of(location, item, pitch, yaw));
             }
             return result;

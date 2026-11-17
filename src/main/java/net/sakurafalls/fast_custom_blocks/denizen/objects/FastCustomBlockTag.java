@@ -1,10 +1,12 @@
 package net.sakurafalls.fast_custom_blocks.denizen.objects;
 
+import com.denizenscript.denizen.objects.ChunkTag;
 import com.denizenscript.denizen.objects.ItemTag;
 import com.denizenscript.denizen.objects.LocationTag;
 import com.denizenscript.denizen.objects.MaterialTag;
 import com.denizenscript.denizencore.objects.Fetchable;
 import com.denizenscript.denizencore.objects.ObjectTag;
+import com.denizenscript.denizencore.objects.core.ListTag;
 import com.denizenscript.denizencore.tags.Attribute;
 import com.denizenscript.denizencore.tags.ObjectTagProcessor;
 import com.denizenscript.denizencore.tags.TagContext;
@@ -79,6 +81,14 @@ public class FastCustomBlockTag implements ObjectTag {
             at.setPitch(object.block.pitch());
             at.setYaw(object.block.yaw());
             return at;
+        });
+
+        ChunkTag.tagProcessor.registerTag(ListTag.class, "fast_custom_blocks", (_, object) -> {
+            ListTag list = new ListTag();
+            for (CustomBlock customBlock : FastCustomBlocksMain.getCustomBlockService().getBlocksAt(object.getChunk())) {
+                list.addObject(new FastCustomBlockTag(customBlock));
+            }
+            return list;
         });
     }
 
