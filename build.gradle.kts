@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "eu.bqkitcat"
-version = "26.1.2-0"
+version = "26.1.2-1"
 description = "LiteProfiles"
 java.sourceCompatibility = JavaVersion.VERSION_25
 
